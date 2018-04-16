@@ -77,3 +77,14 @@
 4. e usando o **categoriaRepository** dê um **saveAll(Arrays.asList(cat1, cat2))**.
 
 ### [Produto e associacao muitos para muitos](https://github.com/Samirsilva/cursomc/commit/0e1be2994dba34dc2d1fb2f65429b2670f198c49)
+1. Crie uma classe de dominio **Produto**, com os atributos: id, nome e preco, pacote **com.cursomc.domain**.
+2. Gere o **Serializable** e sua váriavel e insira a anotação  **@Entity** na classe.
+3. Gere os **Getters and Seters** e o **hashcode()** e **equals()** somente por id.
+4. Crie a interface **ProdutoRepository** e extenda de **JpaRepository<Produto, Integer>** como pacote: **com.cursomc.repositories**.
+5. Na classe de dominio **Categoria** crie uma lista do tipo **Produto**, insira a anotação **@ManyToMany(mappedBy="categorias")**.
+6. Na classe de dominio **Produto** crie uma lista do tipo **Categoria** e insira a anotação **@ManyToMany(name="PRODUTO_CATEGORIA", joinColumns = @JoinColumn(name = "produto_id"), inverseJoinColumns = @JoinColumn(name = "categoria_id"))** e insira seus **Getters and Seters**.
+7. Pro fim, na classe principal da aplicação, crie uma variável do tipo **ProdutoRepository** e insira a anotação **@Auowired**.
+8. Crie 3 objetos do tipo **Produto** passando null no id.
+9. Defina os produtos de cada categoria.
+10. Defina as categorias de cada produto.
+11. Efetue um **saveAll(Arrays.asList(p1,p2,p3))** no **ProdutoRepository**.
